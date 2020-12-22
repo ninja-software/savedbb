@@ -10,6 +10,12 @@ Save Database to Backblaze
 
 ## Installation
 
+Create backup dir
+
+```bash
+mkdir /backups
+```
+
 Get script
 
 ```bash
