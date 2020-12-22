@@ -30,14 +30,6 @@ Run as cron job
 ```bash
 crontab -e
 
-# crontab environment variables for savedbb
-DBName="mydb"
-PASSWD="7z-encrypt-pass"
-BB_KEYID="00000"
-BB_KEYNAME="test-backup"
-BB_APPKEY="test-key"
-BB_ENDPOINT="s3.123.backblazeb2.com"
-BB_BUCKET="test-bucket"
 # m h  dom mon dow   command
-0 10 * * * $HOME/bin/savedbb.sh >> $HOME/bkup.log
+0 10 * * * source $HOME/.savedbb.env; $HOME/bin/savedbb.sh >> $HOME/bkup.log
 ```
