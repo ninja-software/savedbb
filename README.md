@@ -8,15 +8,19 @@ Save Database to Backblaze
 - 7z - 7zip file compress / decompression
 - b2 - Backblaze b2 client from https://www.backblaze.com/b2/docs/quick_command_line.html
 
+**Note**
+
+Put b2 in common path so it is accessible e.g. `/usr/bin`
+
 ## Installation
 
-Create backup dir
+1. Create backup dir
 
 ```bash
 mkdir /backups
 ```
 
-Get script
+2. Get script
 
 ```bash
 mkdir ~/bin
@@ -25,7 +29,9 @@ wget https://raw.githubusercontent.com/ninja-software/savedbb/master/savedbb.sh
 chmod +x savedbb.sh
 ```
 
-Run as cron job
+3. Download, edit, save .savedbb.env file
+
+4. Run as cron job
 
 ```bash
 crontab -e
