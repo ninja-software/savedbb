@@ -21,7 +21,7 @@ Get script
 ```bash
 mkdir ~/bin
 cd ~/bin
-wget https://github.com/ninja-software/savedbb/savedbb.sh
+wget https://raw.githubusercontent.com/ninja-software/savedbb/master/savedbb.sh
 chmod +x savedbb.sh
 ```
 
