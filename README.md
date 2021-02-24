@@ -37,5 +37,5 @@ chmod +x savedbb.sh
 crontab -e
 
 # m h  dom mon dow   command
-0 10 * * * source $HOME/.savedbb.env; $HOME/bin/savedbb.sh >> $HOME/bkup.log
+0 10 * * * . $HOME/.savedbb.env; $HOME/bin/savedbb.sh >> $HOME/bkup.log
 ```
