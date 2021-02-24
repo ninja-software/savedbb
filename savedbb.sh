@@ -47,6 +47,18 @@ BB_APPKEY=${BB_APPKEY:="test-key"}
 BB_ENDPOINT=${BB_ENDPOINT:="s3.123.backblazeb2.com"}
 BB_BUCKET=${BB_BUCKET:="test-bucket"}
 
+# make sure db name is supplied
+if [ "$DBNAME" = "testdb" ]; then
+  echo "DBNAME not supplied"
+  exit 5
+fi
+
+# make sure 7z password is supplied
+if [ "$PASSWD" = "testpass" ]; then
+  echo "PASSWD not supplied"
+  exit 6
+fi
+
 # make sure b2 account is setup
 b2 authorize-account ${BB_KEYID} ${BB_APPKEY}
 
