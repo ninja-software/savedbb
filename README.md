@@ -31,7 +31,7 @@ chmod +x savedbb.sh
 
 3. Download, edit, save .savedbb.env file
 
-4. Run as cron job
+4. Run as cron job (as postgres user, otherwise need to specify user in pg_dump)
 
 ```bash
 crontab -e
