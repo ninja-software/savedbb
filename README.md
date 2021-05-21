@@ -14,6 +14,8 @@ Put b2 in common path so it is accessible e.g. `/usr/bin`
 
 ## Installation
 
+Execute as postgres user
+
 1. Create backup dir
 
 ```bash
