@@ -31,7 +31,11 @@ wget https://raw.githubusercontent.com/ninja-software/savedbb/master/savedbb.sh
 chmod +x savedbb.sh
 ```
 
-3. Download, edit, save .savedbb.env file
+3. Download, edit, save .savedbb.env file, set permission 600
+
+```bash
+chmod 600 .savedbb.env
+```
 
 4. Run as cron job (as postgres user, otherwise need to specify user in pg_dump)
 
