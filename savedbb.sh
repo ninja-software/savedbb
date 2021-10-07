@@ -7,10 +7,10 @@
 # backblaze b2 client from https://www.backblaze.com/b2/docs/quick_command_line.html
 
 # sanity check
-# make sure /backups exists
-if [ ! -d /backups ]
+# make sure /backups/db exists
+if [ ! -d /backups/db ]
 then
-  echo "dir /backups not exists"
+  echo "dir /backups/db not exists"
   exit 1
 fi
 # make sure b2 exist
@@ -67,17 +67,14 @@ DATE=$(date +"%Y%m%d%H%M")
 SQLPREFIX="${DBNAME}_${DATE}"
 
 # go to work dir
-cd /backups
+cd /backups/db
 
 # delete any local files older than 100 days
-find /backups/* -type f -iname "*.7z" -mtime +100 -delete
-find /backups/* -type f -iname "*.uploaded" -mtime +100 -delete
+find /backups/db/* -type f -iname "*.7z" -mtime +100 -delete
+find /backups/db/* -type f -iname "*.uploaded" -mtime +100 -delete
 
-# dump db
-pg_dump -Fc ${DBNAME} > "${SQLPREFIX}.sql"
-
-# compress and encrypt, then remove
-7z a -y -mx1 -mmt1 -bd -p"${PASSWD}" "${SQLPREFIX}.sql.7z" "${SQLPREFIX}.sql" && rm "${SQLPREFIX}.sql"
+# dump db and compress and encrypt
+pg_dump ${DBNAME} | 7z a -y -si -mx1 -mmt1 -bd -p"${PASSWD}" "${SQLPREFIX}.sql.7z"
 
 # upload any files not yet uploaded
 find * -type f -iname "*.7z" -exec [ ! -f "{}.uploaded" ] \; -exec b2 upload_file ${BB_BUCKET} "{}" "database/{}" \; -exec touch "{}.uploaded" \;
