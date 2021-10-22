@@ -19,7 +19,7 @@ Execute as postgres user
 1. Create backup dir
 
 ```bash
-mkdir /backups
+mkdir -p /backups/db
 ```
 
 2. Get script
