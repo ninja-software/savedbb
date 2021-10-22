@@ -4,7 +4,7 @@ Save Database to Backblaze
 
 ## Requirements
 
-- pg_dump - postgres database dumper
+- pg_dump - postgres database dumper, default with postgresql install
 - 7z - 7zip file compress / decompression `apt install p7zip-full`
 - b2 - Backblaze b2 client from https://www.backblaze.com/b2/docs/quick_command_line.html
 
@@ -31,10 +31,13 @@ wget https://raw.githubusercontent.com/ninja-software/savedbb/master/savedbb.sh
 chmod +x savedbb.sh
 ```
 
-3. Download, edit, save .savedbb.env file, set permission 600
+3. Download, set permission, edit .savedbb.env file
 
 ```bash
+cd ~
+wget -O .savedbb.env https://raw.githubusercontent.com/ninja-software/savedbb/master/.savedbb.sample.env
 chmod 600 .savedbb.env
+nano .savedbb.env
 ```
 
 4. Run as cron job (as postgres user, otherwise need to specify user in pg_dump)
