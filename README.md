@@ -5,7 +5,7 @@ Save Database to Backblaze
 ## Requirements
 
 - pg_dump - postgres database dumper
-- 7z - 7zip file compress / decompression
+- 7z - 7zip file compress / decompression `apt install p7zip-full`
 - b2 - Backblaze b2 client from https://www.backblaze.com/b2/docs/quick_command_line.html
 
 **Note**
